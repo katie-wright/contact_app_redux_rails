@@ -1,0 +1,3 @@
+export const FETCH_CONTACTS = "FETCH_CONTACTS";
+export const RECEIVE_CONTACTS = "RECEIVE_CONTACTS";
+export const GET_TAGS = "GET_TAGS";

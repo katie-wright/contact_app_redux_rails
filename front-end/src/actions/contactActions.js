@@ -23,6 +23,7 @@ export function fetchContacts(){
 }
 
 export function addContact(contact){
+    contact.tags = contact.tags.join(",");
     return dispatch => {
         return axios.post('/contacts', contact)
             .then(res=>{
@@ -50,6 +51,9 @@ export function deleteContact(id){
 }
 
 export function editContact(updateData, id){
+    if (updateData.tags) {
+        updateData.tags=updateData.tags.join(",");
+    };
     return dispatch => {
         return axios.put('/contacts/'+id, updateData)
             .then(res=>{

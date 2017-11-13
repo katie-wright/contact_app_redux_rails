@@ -7,7 +7,11 @@ export default function contacts(state=initialState, action){
         case FETCH_CONTACTS:
             return action;
         case RECEIVE_CONTACTS:
-            newState = action.contacts;
+            let contacts = action.contacts.map(contact=>{
+                contact.tags = contact.tags.split(",");
+                return contact
+            });
+            newState = contacts;
             return newState;
         default:
             return state;
